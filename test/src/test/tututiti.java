@@ -138,34 +138,57 @@ public class tututiti {
 	public static void main(String[] args) {
 		
 		
-		Scanner sc = new Scanner( System.in ) ;
+		    Scanner sc = new Scanner( System.in ) ;
+		    
+		    Boolean restart = true  ;
+		    
+		    while (restart)
+		    {
+		    	System.out.println( "Veuillez saisir un nombre : " );
+		        String nombre = sc.nextLine();
+		       
+		        System.out.println( "Choisissez le mode   " );
+		        System.out.println( "Tapez 1 pour step1 ou Tapez 2 pour step2: " );
+		        String choix = sc.nextLine();
+		        
+		        /* checking if the user made a correct choice for the mode of computing  */
+		        
+		        while (!(choix.equalsIgnoreCase("1")) && !(choix.equalsIgnoreCase("2")))
+		        {
+		        	 System.out.println( "Veuillez faire un choix correct svp " );
+		             System.out.println( "Tapez 1 pour step1 ou Tapez 2 pour step2 " );
+		             choix = sc.nextLine();
+		        	
+		        }
+		        
+		        /* Executing a step according to the choice   */
+		        
+		        if (choix.equalsIgnoreCase("1")) System.out.println( "Le resultat est  "  + step1(nombre) ); 
+		        else System.out.println( "Le resultat est  "  + step2(nombre) );
+		        
+		        
+		        System.out.println( "Tapez Y pour recommencez  ou Tapez N pour Quitter " );
+		        String choice = sc.nextLine();
+		        
+		        while (!(choice.equalsIgnoreCase("Y")) && !(choice.equalsIgnoreCase("N")))
+		        {
+		        	 System.out.println( "Veuillez faire un choix correct svp " );
+		        	 System.out.println( "Tapez Y pour recommencez  ou Tapez N pour Quitter " );;
+		             choice = sc.nextLine();
+		        	
+		        }
+		        
+		        if (choice.equalsIgnoreCase("N")) restart = false  ; 
+		    }
 		
-			System.out.println( "Veuillez saisir un nombre : " );
-	        String nombre = sc.nextLine();
-	       
-	        System.out.println( "Choisissez le mode   " );
-	        System.out.println( "Tapez 1 pour step1 ou Tapez 2 pour step2: " );
-	        Integer choix = sc.nextInt();
-	        
-	        /* checking if the user made a correct choice for the mode of computing  */
-	        
-	        while ((choix != 1) &&(choix != 2))
-	        {
-	        	 System.out.println( "Veuillez faire un choix correct svp " );
-	             System.out.println( "Tapez 1 pour step1 ou Tapez 2 pour step2 " );
-	             choix = sc.nextInt();
-	        	
-	        }
-	        
-	        /* Executing a step according to the choice   */
-	        
-	        if (choix == 1) System.out.println( "Le resultat est  "  + step1(nombre) ); 
-	        else System.out.println( "Le resultat est  "  + step2(nombre) );
-	        
+			
+		    sc.close();
+		    System.exit(0);
+		    
 	        
 		 
         
-        sc.close();
+        
 	}
 
 }
