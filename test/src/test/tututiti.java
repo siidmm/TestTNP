@@ -3,8 +3,11 @@
  import java.util.Scanner;
 
 public class tututiti {
-   
+	
+   /* Function checking if the number contains digit 3, 5  or  7*/
+	
 	public static String contentcheck  (String number ) {
+		
 		char[] digit = number.toCharArray();
 		String result="" ;
 		for(char d : digit){
@@ -23,14 +26,22 @@ public class tututiti {
 		}
 		return result ;
 	}
+	/* Function  that compute the step 1 rules */
+	
 	public static String step1  (String number ) {
 		
 
-	     String result="" ;
+	     String result="" ; /* creating the variable that will return the result   */
+	     
+	     /* Making a try and catch to prevent any error from the user  */
+	 	
 		 try {  
-			Integer num  = Integer.parseInt(number);
+			Integer num  = Integer.parseInt(number); /* Transform the string in number if possible */
+			
+			/* checking if it's divisible by  3, 5  or  7  */
 			
 			if (( num % 3 != 0) && (num % 5 != 0) && (num % 7 != 0)){
+				
 				char[] digit = number.toCharArray();
 				for(char d : digit){
 					switch (d) {
@@ -67,12 +78,21 @@ public class tututiti {
 		
 		 
 	}
+	
+	/* Function  that compute the step 1 rules */
+	
 	public static String step2  (String number ) {
 		
-	     String result="" ;
+	     String result="" ;  /* creating the variable that will return the result   */
+	     
+	     /* Making a try and catch to prevent any error from the user  */
+	     
 		 try {  
-			Integer num  = Integer.parseInt(number);
+			Integer num  = Integer.parseInt(number);  /* Transform the string in number if possible */
+			
 			char[] digit = number.toCharArray();
+			
+			/* checking if it's divisible by  3, 5  or  7  */
 			
 			if (( num % 3 != 0) && (num % 5 != 0) && (num % 7 != 0)){
 				for(char d : digit){
@@ -127,6 +147,8 @@ public class tututiti {
 	        System.out.println( "Tapez 1 pour step1 ou Tapez 2 pour step2: " );
 	        Integer choix = sc.nextInt();
 	        
+	        /* checking if the user made a correct choice for the mode of computing  */
+	        
 	        while ((choix != 1) &&(choix != 2))
 	        {
 	        	 System.out.println( "Veuillez faire un choix correct svp " );
@@ -134,6 +156,9 @@ public class tututiti {
 	             choix = sc.nextInt();
 	        	
 	        }
+	        
+	        /* Executing a step according to the choice   */
+	        
 	        if (choix == 1) System.out.println( "Le resultat est  "  + step1(nombre) ); 
 	        else System.out.println( "Le resultat est  "  + step2(nombre) );
 	        
